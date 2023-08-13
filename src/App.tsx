@@ -1,7 +1,8 @@
+import { useState } from 'react';
 import Header from './components/Header/index.tsx';
 import Dash from './components/Dash/index.tsx';
 import TransactionHistory from './components/TransactionHistory/index.tsx';
-import { useState } from 'react';
+import Footer from './components/Footer/index.tsx';
 
 function App() {
   const [newData, setNewData] = useState({
@@ -51,6 +52,7 @@ function App() {
       <Header />
       <Dash newValue={215.78} valueType="tbd" />
       <TransactionHistory newData={data} />
+      <Footer />
     </>
   );
 }
