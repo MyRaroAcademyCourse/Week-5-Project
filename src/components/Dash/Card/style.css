@@ -1,0 +1,41 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 276px;
+  height: 120px;
+  border-radius: 11px;
+  padding: 14px 30px 13px 27px;
+  border: 1px solid #cbd5e1;
+  margin-right: 32px;
+  background: #F8FAFC;
+}
+
+.card-logo-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+  width: 100%;
+}
+
+.card-title {
+  font-family: 'Mulish', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #94A3B8;
+}
+
+.card-logo {
+    width: 32px;
+    height: 32px;
+}
+
+.integers {
+  font-size: 29px;
+  font-weight: 800;
+}
+
+.cents {
+  font-size: 19px;
+  font-weight: 800;
+}
