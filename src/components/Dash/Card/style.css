@@ -8,6 +8,7 @@
   border: 1px solid #cbd5e1;
   margin-right: 32px;
   background: #F8FAFC;
+  box-shadow: 5px 15px 30px -5px #DCE0EC;
 }
 
 .card-logo-title {
