@@ -1,32 +1,24 @@
-import { useState } from 'react';
 import Card from './Card';
 import './style.css';
 
 interface propsTypes {
-  newValue: number;
-  valueType: string;
   onEntriesSum: number;
+  onDebitValues: number;
+  onBalanceChange: number;
+  onAddTransaction: (e: boolean) => void;
 }
 
-const Dash = ({ newValue, valueType, onEntriesSum }: propsTypes) => {
-  const [entranceValue, setEntranceValue] = useState(0);
-  const [debitValue, setDebitValue] = useState(0);
-  const [balance, setBalance] = useState(0);
+const Dash = ({ onEntriesSum, onDebitValues, onBalanceChange, onAddTransaction }: propsTypes) => {
+  const handleClick = () => {
+    onAddTransaction(true);
+  };
 
-  if (valueType === 'entrance' && newValue > 0) {
-    setEntranceValue((prev) => prev + onEntriesSum);
-    setBalance((prev) => prev + newValue);
-  } else if (valueType === 'debit' && newValue !== 0) {
-    setDebitValue((prev) => prev + newValue);
-    setBalance((prev) => prev - newValue);
-  }
-  
   return (
     <section className="dash">
-      <Card title="Entradas" logo="src/assets/trendingUp.svg" value={entranceValue} />
-      <Card title="Saídas" logo="src/assets/trendingDown.svg" value={debitValue} />
-      <Card title="Saldo" logo="src/assets/dollarSign.svg" value={balance} />
-      <div className="btn-transacao">
+      <Card title="Entradas" logo="src/assets/trendingUp.svg" value={onEntriesSum} />
+      <Card title="Saídas" logo="src/assets/trendingDown.svg" value={onDebitValues} />
+      <Card title="Saldo" logo="src/assets/dollarSign.svg" value={onBalanceChange} />
+      <div className="btn-transacao" onClick={handleClick}>
         <img src="src/assets/plusIcon.svg" alt="botao transacao" />
         <p className="btn-text">TRANSAÇÃO</p>
       </div>

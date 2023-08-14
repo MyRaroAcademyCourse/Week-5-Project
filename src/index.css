@@ -5,11 +5,11 @@
   margin: 0;
   box-sizing: border-box;
   }
+
 html {
   height: 100vh;
   width: 100vw;
 }
-
 
 body {
   background: #E2E8F0;

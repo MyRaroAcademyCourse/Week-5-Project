@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { Backdrop } from '@mui/material';
 import Header from './components/Header/index.tsx';
 import Dash from './components/Dash/index.tsx';
 import TransactionHistory from './components/TransactionHistory/index.tsx';
@@ -8,8 +7,8 @@ import NewTransactionForm from './components/NewTransactionForm/index.tsx';
 import { FormDataType } from './components/NewTransactionForm/types/formDataType.tsx';
 
 function App() {
-  const [entranceValue, setEntranceValue] = useState<number>(1853.12);
-  const [debitValue, setDebitValue] = useState<number>(-1935.65);
+  const [entranceValues, setEntranceValues] = useState<number>(1853.12);
+  const [debitValues, setDebitValues] = useState<number>(-1935.65);
   const [balance, setBalance] = useState(-82.53);
   const [open, setOpen] = useState<boolean>(false);
   const [data, setData] = useState<FormDataType[]>([
@@ -39,17 +38,18 @@ function App() {
   const handleFormOpen = (e: boolean) => {
     setOpen(e);
   };
+  const handleFormClose = () => {
+    setOpen(false);
+  };
 
   const handleNewData = (e: FormDataType) => {
     console.log(e);
     setData([...data, e]);
     if (e.tipo === '+') {
-      console.log({entranceValue})
-      console.log({e})
-      setEntranceValue((prevEntranceValue) => (prevEntranceValue as number) + Number(e.valor));
+      setEntranceValues((prevEntranceValue) => (prevEntranceValue as number) + Number(e.valor));
       setBalance((prevBalance) => (prevBalance as number) + Number(e.valor));
     } else if (e.tipo === '-') {
-      setDebitValue((prevDebitValue) => prevDebitValue - e.valor);
+      setDebitValues((prevDebitValue) => prevDebitValue - e.valor);
       setBalance((prevBalance) => prevBalance - e.valor);
     }
   };
@@ -57,13 +57,16 @@ function App() {
   return (
     <>
       <Header />
-      <Dash onEntriesSum={entranceValue} newValue={215.78} valueType="tbd" />
+      <Dash
+        onEntriesSum={entranceValues}
+        onDebitValues={debitValues}
+        onBalanceChange={balance}
+        onAddTransaction={handleFormOpen}
+      />
       <TransactionHistory newData={data} />
       <Footer />
       {open ? (
-        <Backdrop open={open} onClick={() => setOpen(false)}>
-          <NewTransactionForm onDataSubmit={handleNewData} onSetOpen={handleFormOpen} />
-        </Backdrop>
+        <NewTransactionForm onDataSubmit={handleNewData} onSetOpen={open} onSetClose={handleFormClose} />
       ) : null}
     </>
   );
