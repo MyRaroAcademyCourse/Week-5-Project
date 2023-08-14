@@ -1,21 +1,18 @@
 import { useState } from 'react';
+import { Backdrop } from '@mui/material';
 import Header from './components/Header/index.tsx';
 import Dash from './components/Dash/index.tsx';
 import TransactionHistory from './components/TransactionHistory/index.tsx';
 import Footer from './components/Footer/index.tsx';
+import NewTransactionForm from './components/NewTransactionForm/index.tsx';
+import { FormDataType } from './components/NewTransactionForm/types/formDataType.tsx';
 
 function App() {
-  const [newData, setNewData] = useState({
-    nome: '',
-    data: '',
-    categoria: '',
-    valor: 0,
-    tipo: '',
-  });
-  const [entranceValue, setEntranceValue] = useState(0);
-  const [debitValue, setDebitValue] = useState(0);
-  const [balance, setBalance] = useState(0);
-  const [data, setData] = useState([
+  const [entranceValue, setEntranceValue] = useState<number>(1853.12);
+  const [debitValue, setDebitValue] = useState<number>(-1935.65);
+  const [balance, setBalance] = useState(-82.53);
+  const [open, setOpen] = useState<boolean>(false);
+  const [data, setData] = useState<FormDataType[]>([
     {
       nome: 'Venda de celular antigo',
       data: '01/08/2023',
@@ -39,20 +36,35 @@ function App() {
     },
   ]);
 
-  if (newData.tipo === '+' && newData.valor > 0) {
-    setEntranceValue((prev) => prev + newData.valor);
-    setBalance((prev) => prev + newData.valor);
-  } else if (newData.tipo === 'debit' && newData.valor !== 0) {
-    setDebitValue((prev) => prev + newData.valor);
-    setBalance((prev) => prev - newData.valor);
-  }
+  const handleFormOpen = (e: boolean) => {
+    setOpen(e);
+  };
+
+  const handleNewData = (e: FormDataType) => {
+    console.log(e);
+    setData([...data, e]);
+    if (e.tipo === '+') {
+      console.log({entranceValue})
+      console.log({e})
+      setEntranceValue((prevEntranceValue) => (prevEntranceValue as number) + Number(e.valor));
+      setBalance((prevBalance) => (prevBalance as number) + Number(e.valor));
+    } else if (e.tipo === '-') {
+      setDebitValue((prevDebitValue) => prevDebitValue - e.valor);
+      setBalance((prevBalance) => prevBalance - e.valor);
+    }
+  };
 
   return (
     <>
       <Header />
-      <Dash newValue={215.78} valueType="tbd" />
+      <Dash onEntriesSum={entranceValue} newValue={215.78} valueType="tbd" />
       <TransactionHistory newData={data} />
       <Footer />
+      {open ? (
+        <Backdrop open={open} onClick={() => setOpen(false)}>
+          <NewTransactionForm onDataSubmit={handleNewData} onSetOpen={handleFormOpen} />
+        </Backdrop>
+      ) : null}
     </>
   );
 }

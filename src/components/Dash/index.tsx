@@ -5,15 +5,16 @@ import './style.css';
 interface propsTypes {
   newValue: number;
   valueType: string;
+  onEntriesSum: number;
 }
 
-const Dash = ({ newValue, valueType }: propsTypes) => {
+const Dash = ({ newValue, valueType, onEntriesSum }: propsTypes) => {
   const [entranceValue, setEntranceValue] = useState(0);
   const [debitValue, setDebitValue] = useState(0);
   const [balance, setBalance] = useState(0);
 
   if (valueType === 'entrance' && newValue > 0) {
-    setEntranceValue((prev) => prev + newValue);
+    setEntranceValue((prev) => prev + onEntriesSum);
     setBalance((prev) => prev + newValue);
   } else if (valueType === 'debit' && newValue !== 0) {
     setDebitValue((prev) => prev + newValue);
