@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { FormDataType } from './types/formDataType';
-import './style.css';
+import { FormDataType } from '../../types/formDataType';
 import { Backdrop } from '@mui/material';
+import './style.css';
 
 interface NewTransactionFormProps {
   onSetOpen: boolean;
@@ -15,7 +15,7 @@ const NewTransactionForm = ({ onSetOpen, onSetClose, onDataSubmit }: NewTransact
     data: '',
     categoria: '',
     valor: 0,
-    tipo: '',
+    tipo: '+',
   });
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,7 +66,7 @@ const NewTransactionForm = ({ onSetOpen, onSetClose, onDataSubmit }: NewTransact
           <input
             type="number"
             id="valor"
-            value={formData.valor === 0 ? '' : formData.valor}
+            value={formData.valor === 0 ? '' : formData.valor.toLocaleString('pt-BR')}
             onChange={handleInputChange}
             placeholder="Digite o valor da sua transação"
           />

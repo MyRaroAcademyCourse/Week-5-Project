@@ -6,12 +6,12 @@
   box-sizing: border-box;
   }
 
-html {
+  #root, html {
   height: 100vh;
   width: 100vw;
 }
 
-body {
+body{
   background: #E2E8F0;
   height: 100%;
   width: 100%;

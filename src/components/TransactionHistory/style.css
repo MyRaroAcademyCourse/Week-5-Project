@@ -1,11 +1,11 @@
 .trans-his-section {
   display: flex;
-  min-height: 533px;
+  min-height: 33.2rem;
   max-height: 100%;
   justify-content: center;
   font-family: 'Mulish', sans-serif;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .trans-his-main {

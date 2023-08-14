@@ -4,12 +4,12 @@ import Dash from './components/Dash/index.tsx';
 import TransactionHistory from './components/TransactionHistory/index.tsx';
 import Footer from './components/Footer/index.tsx';
 import NewTransactionForm from './components/NewTransactionForm/index.tsx';
-import { FormDataType } from './components/NewTransactionForm/types/formDataType.tsx';
+import { FormDataType } from './types/formDataType.tsx';
 
 function App() {
   const [entranceValues, setEntranceValues] = useState<number>(1853.12);
-  const [debitValues, setDebitValues] = useState<number>(-1935.65);
-  const [balance, setBalance] = useState(-82.53);
+  const [debitValues, setDebitValues] = useState<number>(1935.65);
+  const [balance, setBalance] = useState<number>(-82.53);
   const [open, setOpen] = useState<boolean>(false);
   const [data, setData] = useState<FormDataType[]>([
     {
@@ -41,16 +41,14 @@ function App() {
   const handleFormClose = () => {
     setOpen(false);
   };
-
   const handleNewData = (e: FormDataType) => {
-    console.log(e);
-    setData([...data, e]);
+    setData((prevData) => [...prevData, e]);
     if (e.tipo === '+') {
-      setEntranceValues((prevEntranceValue) => (prevEntranceValue as number) + Number(e.valor));
-      setBalance((prevBalance) => (prevBalance as number) + Number(e.valor));
+      setEntranceValues((prevEntranceValue):number => prevEntranceValue + Number(e.valor));
+      setBalance((prevBalance):number => prevBalance + Number(e.valor));
     } else if (e.tipo === '-') {
-      setDebitValues((prevDebitValue) => prevDebitValue - e.valor);
-      setBalance((prevBalance) => prevBalance - e.valor);
+      setDebitValues((prevDebitValue):number => prevDebitValue + Number(e.valor));
+      setBalance((prevBalance) => prevBalance - Number(e.valor));
     }
   };
 
