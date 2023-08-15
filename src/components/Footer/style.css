@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 120px;
+  padding-right: 120px;
+  font-family: Mulish;
+  font-size: 14px;
+  font-weight: 400;
+  height: 61px;
+  background: #CBD5E1;
+  color: #1E293B;
+}
+
+.footer-name {
+  font-size: 16px;
+  font-weight: 600;
+}
