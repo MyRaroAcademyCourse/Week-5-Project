@@ -33,6 +33,7 @@ const NewTransactionForm = ({ onSetOpen, onSetClose, onDataSubmit }: NewTransact
     onDataSubmit(formData);
   };
 
+
   return (
     <Backdrop open={onSetOpen} onClick={() => onSetClose(false)}>
       <div className="form-dialog" onClick={(e) => e.stopPropagation()}>

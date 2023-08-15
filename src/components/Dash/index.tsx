@@ -33,8 +33,8 @@ const Dash = ({ onEntriesSum, onDebitValues, onBalanceChange, onAddTransaction }
 
   return (
     <section className="dash">
-      {cardsList.map((card) => (
-        <Card title={card.title} logo={card.logo} value={card.value} />
+      {cardsList.map((card, index) => (
+        <Card key={index} title={card.title} logo={card.logo} value={card.value} />
       ))}
 
       <div className="btn-transacao" onClick={handleClick}>

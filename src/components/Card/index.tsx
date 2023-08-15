@@ -12,7 +12,7 @@ const Card = ({ title, logo, value }: propsTypes) => {
   return (
     <div className="card">
       <div className="card-logo-title">
-        <p className="card-title">{title}</p>
+        <span className="card-title">{title}</span>
         <img className="card-logo" src={logo} alt="logo" />
       </div>
       <div>
