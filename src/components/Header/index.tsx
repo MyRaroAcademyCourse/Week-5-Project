@@ -2,7 +2,7 @@ import './style.css';
 
 const Header = () => {
   return (
-    <section className="header">
+    <header className="header">
       <div className="logo-title">
         <img src="src/assets/logo.svg" alt="logo" />
         <p className="title">Raro Finanças</p>
@@ -14,7 +14,7 @@ const Header = () => {
         </div>
         <img src="src/assets/avatar.svg" alt="avatar" />
       </div>
-    </section>
+    </header>
   );
 };
 

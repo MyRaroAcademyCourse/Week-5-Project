@@ -7,12 +7,12 @@ interface propsTypes {
 }
 
 const Card = ({ title, logo, value }: propsTypes) => {
-    const [integers, cents] = value.toFixed(2).split('.');
+  const [integers, cents] = value.toFixed(2).split('.');
 
   return (
     <div className="card">
       <div className="card-logo-title">
-        <p className="card-title">{title}</p>
+        <span className="card-title">{title}</span>
         <img className="card-logo" src={logo} alt="logo" />
       </div>
       <div>

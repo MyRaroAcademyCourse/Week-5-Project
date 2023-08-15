@@ -1,7 +1,11 @@
+import { FormDataType } from '../../types/formDataType';
 import './style.css';
 
-const TransactionHistory = ({newData}) => {
-  
+interface TransactionHistoryProps {
+  newData: FormDataType[];
+}
+
+const TransactionHistory = ({ newData }: TransactionHistoryProps) => {
   return (
     <section className="trans-his-section">
       <main className="trans-his-main">
@@ -17,13 +21,16 @@ const TransactionHistory = ({newData}) => {
             </tr>
           </thead>
           <tbody>
-            {newData.map((tableRow) => {
+            {newData.map((tableRow: FormDataType, index) => {
               return (
-                <tr className="trans-his-rows">
+                <tr key={index} className="trans-his-rows">
                   <td>{tableRow.nome}</td>
-                  <td>{tableRow.data}</td>
+                  <td>{tableRow.data.substring(0, 10).split('-').reverse().join('/')}</td>
                   <td>{tableRow.categoria}</td>
-                  <td>{`R$ ${tableRow.valor.toLocaleString('pt-BR')}`}</td>
+                  <td>{`R$ ${Number(tableRow.valor).toLocaleString('pt-BR', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })}`}</td>
                   <td className={`trans-his-tipo-style ${tableRow.tipo === '+' ? 'plus' : 'minus'}`}>
                     {tableRow.tipo}
                   </td>
