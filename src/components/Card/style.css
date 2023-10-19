@@ -1,14 +1,15 @@
 .card {
   display: flex;
   flex-direction: column;
-  width: 276px;
+  justify-content: center;
+  width: inherit;
   height: 120px;
   border-radius: 11px;
   padding: 14px 30px 13px 27px;
   border: 1px solid #cbd5e1;
   margin-right: 32px;
-  background: #F8FAFC;
-  box-shadow: 5px 15px 30px -5px #DCE0EC;
+  background: #f8fafc;
+  box-shadow: 5px 15px 30px -5px #dce0ec;
 }
 
 .card-logo-title {
@@ -23,12 +24,12 @@
   font-family: 'Mulish', sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #94A3B8;
+  color: #94a3b8;
 }
 
 .card-logo {
-    width: 32px;
-    height: 32px;
+  width: 32px;
+  height: 32px;
 }
 
 .integers {
@@ -39,4 +40,93 @@
 .cents {
   font-size: 19px;
   font-weight: 800;
+}
+
+.balance-text-negative {
+  color: red;
+}
+.balance-text-positive {
+  color: green;
+}
+
+@media screen and (max-width: 1440px) {
+  .card {
+    height: 100px;
+    margin-right: 25px;
+  }
+
+  .integers {
+    font-size: 22px;
+    font-weight: 800;
+  }
+
+  .cents {
+    font-size: 12px;
+    font-weight: 800;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    padding: 8px;
+    height: 80px;
+    margin-right: 20px;
+  }
+
+  .integers {
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .cents {
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  .card-logo {
+    width: 20px;
+  }
+
+  .card-title {
+    font-size: 12px;
+  }
+
+  .card-logo-title {
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    height: 50px;
+    margin-right: 0px;
+  }
+
+  .integers {
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .cents {
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .card-logo {
+    width: 26px;
+  }
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-logo-title {
+    width: auto;
+    height: 30px;
+    gap: 5px;
+    justify-content: flex-start;
+  }
 }

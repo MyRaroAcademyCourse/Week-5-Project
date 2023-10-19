@@ -70,16 +70,18 @@ input {
   margin-top: 1.2px;
   margin-bottom: 24px;
   margin-right: 12px;
+  cursor: pointer;
 }
 
 input[type='radio'] {
   width: 20px;
   height: 20px;
+  cursor: pointer;
 }
 
 .form-btn-img {
-    margin-left: 8px;
-    margin-right: 8px;
+  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .form-btns {
@@ -94,6 +96,7 @@ button {
   border-radius: 12px;
   align-items: center;
   align-content: center;
+  cursor: pointer;
 }
 
 .form-btn-cancel {
@@ -108,4 +111,21 @@ button {
   height: 38px;
   border: none;
   margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .form-dialog {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .form-dialog {
+    width: 100%;
+    height: 85dvh;
+  }
+
+  .form-title {
+    font-size: 20px;
+  }
 }
