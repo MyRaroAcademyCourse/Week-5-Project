@@ -1,3 +1,39 @@
+# Semana 5 - Exercício avaliativo
+
+Vamos as contas! Seu objeto essa semana, será construir uma aplicação responsável por gerenciar nossos gastos a partir do projeto figma deste link: https://www.figma.com/file/SmIdXRXkf9A4kOHAINlWeD/Raro-Finan%C3%A7as?type=design&node-id=0-1&mode=design&t=nZZc5BeDgI0xCa5P-0
+
+## Instruções
+
+No 'Raro Finanças' é importante que toda a aplicação funcione correntamente e sem bugs, então esperamos que nós, como usuários, sejamos capazes de:
+
+- Visualizar nosso controle de gastos, listando todos os itens;
+- Clicar no button de '+ Transação' para abrir modal;
+- Preencher no formulário dentro deste modal com uma nova transação, contendo: nome, data, categoria, valor e tipo, sendo esse último uma variação apenas de 'entrada' ou 'saída';
+- Visualizar esse novo item adicionando-o à lista ao terminar de criá-lo;
+- Visualizar a soma de todos os valores do tipo 'entrada';
+- Visualizar a soma de todos os valores do tipo 'saída';
+- Visualizar o valor do saldo que será a soma do total do tipo 'entrada' + total do tipo 'saída';
+
+## Critérios de avaliação
+
+- Boas regras de componentização;
+- Capacidade de manter o padrão durante todo seu projeto;
+- Completa funcionalidade da aplicação, cumprindo todas as regras que ocorrem dentro do sisteminha;
+- Avaliação da existência ou não de bugs dentro do projetinho,
+- Capacidade de seguir e respeitar o projeto do Figma;
+- Utilizacação apenas de CSS puro, pode usar o CSS modules se quiser, ele se encaixa dentro do css. Quem quiser usar apenas a forma padrão também, sem problemas.
+- Divisão do trabalho com entregas em features, aplicando conhecimentos de gitflow
+
+## Dicas de ouro
+
+- A responsividade não será um critério de avaliação mas quem entregar responsivo vai ganhar até meio ponto para  ajudar caso tenha perdido ponto dentro dessa mesma atividade;
+- Queremos também ver a boa utilização do git e gitflow.
+
+## Como entregar a atividade
+
+Sua atividade deverá ser entregue em um novo repositório do gitlab com a criação de um projeto novo de React, onde vocẽ deverá dar acesso a equipe da Raro Academy, através de um link enviado aqui no classroom. Gostaríamos também que ao final da atividade no arquivo markdown (README.md na raiz do projeto) da mesma você escrevesse como foi sua jornada durante a resolução da sua atividade, quais seus principais desafios e como fez para solucioná-los, além de instruções de como devemos rodar seu projeto.`
+
+
 # Relatório de Resolução
 
 ## Introdução
