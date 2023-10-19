@@ -1,5 +1,9 @@
 import Card from '../Card';
 import './style.css';
+import plusIcon from '../../assets/plusIcon.svg';
+import trendingUp from '../../assets/trendingUp.svg';
+import trendingDown from '../../assets/trendingDown.svg';
+import dollarSign from '../../assets/dollarSign.svg';
 
 interface propsTypes {
   onEntriesSum: number;
@@ -16,30 +20,30 @@ const Dash = ({ onEntriesSum, onDebitValues, onBalanceChange, onAddTransaction }
   const cardsList = [
     {
       title: 'Entradas',
-      logo: 'src/assets/trendingUp.svg',
+      logo: trendingUp,
       value: onEntriesSum,
     },
     {
       title: 'Saídas',
-      logo: 'src/assets/trendingDown.svg',
+      logo: trendingDown,
       value: onDebitValues,
     },
     {
       title: 'Saldo',
-      logo: 'src/assets/dollarSign.svg',
+      logo: dollarSign,
       value: onBalanceChange,
     },
   ];
 
   return (
-    <section className="dash">
+    <section className='dash'>
       {cardsList.map((card, index) => (
         <Card key={index} title={card.title} logo={card.logo} value={card.value} />
       ))}
 
-      <div className="btn-transacao" onClick={handleClick}>
-        <img src="src/assets/plusIcon.svg" alt="botao transacao" />
-        <p className="btn-text">TRANSAÇÃO</p>
+      <div className='btn-transacao' onClick={handleClick}>
+        <img src={plusIcon} alt='botao transacao' />
+        <p className='btn-text'>TRANSAÇÃO</p>
       </div>
     </section>
   );

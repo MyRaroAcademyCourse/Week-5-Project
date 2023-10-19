@@ -44,28 +44,28 @@ function App() {
   const handleNewData = (e: FormDataType) => {
     setData((prevData) => [...prevData, e]);
     if (e.tipo === '+') {
-      setEntranceValues((prevEntranceValue):number => prevEntranceValue + Number(e.valor));
-      setBalance((prevBalance):number => prevBalance + Number(e.valor));
+      setEntranceValues((prevEntranceValue): number => prevEntranceValue + Number(e.valor));
+      setBalance((prevBalance): number => prevBalance + Number(e.valor));
     } else if (e.tipo === '-') {
-      setDebitValues((prevDebitValue):number => prevDebitValue + Number(e.valor));
+      setDebitValues((prevDebitValue): number => prevDebitValue + Number(e.valor));
       setBalance((prevBalance) => prevBalance - Number(e.valor));
     }
   };
 
   return (
     <>
-      <Header />
-      <Dash
-        onEntriesSum={entranceValues}
-        onDebitValues={debitValues}
-        onBalanceChange={balance}
-        onAddTransaction={handleFormOpen}
-      />
-      <TransactionHistory newData={data} />
-      <Footer />
-      {open ? (
-        <NewTransactionForm onDataSubmit={handleNewData} onSetOpen={open} onSetClose={handleFormClose} />
-      ) : null}
+      <main className='main-content'>
+        <Header />
+        <Dash
+          onEntriesSum={entranceValues}
+          onDebitValues={debitValues}
+          onBalanceChange={balance}
+          onAddTransaction={handleFormOpen}
+        />
+        <TransactionHistory newData={data} />
+        <Footer />
+      </main>
+      {open ? <NewTransactionForm onDataSubmit={handleNewData} onSetOpen={open} onSetClose={handleFormClose} /> : null}
     </>
   );
 }

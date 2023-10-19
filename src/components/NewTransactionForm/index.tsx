@@ -2,6 +2,11 @@ import { useState } from 'react';
 import { FormDataType } from '../../types/formDataType';
 import { Backdrop } from '@mui/material';
 import './style.css';
+import trendingUpRadio from '../../assets/trendingUpRadio.svg'
+import trendingDownRadio from '../../assets/trendingDownRadio.svg'
+import check from '../../assets/check.svg'
+import xIcon from '../../assets/x.svg'
+
 
 interface NewTransactionFormProps {
   onSetOpen: boolean;
@@ -75,22 +80,22 @@ const NewTransactionForm = ({ onSetOpen, onSetClose, onDataSubmit }: NewTransact
           <div className="form-radio-btns-area">
             <label className="form-radio-btn">
               <input type="radio" id="tipo" value="+" checked={formData.tipo === '+'} onChange={handleRadioChange} />
-              <img className="form-btn-img" src="src/assets/trendingUpRadio.svg" />
+              <img className="form-btn-img" src={trendingUpRadio} />
               Entrada
             </label>
             <label className="form-radio-btn">
               <input type="radio" id="tipo" value="-" checked={formData.tipo === '-'} onChange={handleRadioChange} />
-              <img className="form-btn-img" src="src/assets/trendingDownRadio.svg" />
+              <img className="form-btn-img" src={trendingDownRadio} />
               Saída
             </label>
           </div>
           <div className="form-btns">
             <button className="form-btn-cancel" onClick={() => onSetClose(false)}>
-              <img src="src/assets/x.svg" />
+              <img src={xIcon} />
               Cancelar
             </button>
             <button className="form-btn-add" type="submit">
-              <img src="src/assets/check.svg" />
+              <img src={check} />
               Adicionar
             </button>
           </div>
